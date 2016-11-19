@@ -1,12 +1,13 @@
 package jp.ac.tokyo_ct.hakonetozanrailway_android;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ActivityChangeSample extends AppCompatActivity {
+
+public class ActivityChangeSample extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +21,10 @@ public class ActivityChangeSample extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                Intent intet = new Intent();
-                intet.setClassName("jp.ac.tokyo_ct.hakonetozanrailway_android","jp.ac.tokyo_ct.hakonetozanrailway_android.MainActivity");
+                Intent intent = new Intent();
+                intent.setClassName("jp.ac.tokyo_ct.hakonetozanrailway_android","jp.ac.tokyo_ct.hakonetozanrailway_android.MainActivity");
 
-                startActivity(intet);
+                startActivity(intent);
 
             }
 
