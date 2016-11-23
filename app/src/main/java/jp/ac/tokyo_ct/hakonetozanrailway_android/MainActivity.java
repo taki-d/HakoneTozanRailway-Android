@@ -36,10 +36,10 @@ public class MainActivity extends Activity {
                 button.animate();
                 Toast.makeText(MainActivity.this,"Button Clicked",Toast.LENGTH_SHORT).show();
 
-                Intent intet = new Intent();
-                intet.setClassName("jp.ac.tokyo_ct.hakonetozanrailway_android","jp.ac.tokyo_ct.hakonetozanrailway_android.ActivityChangeSample");
+                Intent intent = new Intent();
+                intent.setClassName("jp.ac.tokyo_ct.hakonetozanrailway_android","jp.ac.tokyo_ct.hakonetozanrailway_android.ActivityChangeSample");
 
-                startActivity(intet);
+                startActivity(intent);
             }
         });
     }
