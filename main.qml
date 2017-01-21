@@ -6,16 +6,51 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("HTT Bread")
 
     header: ToolBar {
+        id: toolbar
+
+        Rectangle {
+            id: drawerOpenButton
+            width: toolbar.height
+            height: toolbar.height
+
+            Image {
+                id: openIcon
+                source: "iconic/"
+            }
+
+            MouseArea {
+                id: drawerOpen
+                anchors.fill: parent
+
+                onClicked: {
+                    console.log("clicked")
+                    console.log(drawer.width)
+
+                    if (drawer.position == 1.0){
+                        drawer.close()
+                    }else{
+                        drawer.open()
+                    }
+                }
+
+            }
+
+        }
 
     }
 
     Drawer {
+        id: drawer
+
         y: header.height
         width: window.width * 0.6
         height: window.height - header.height
     }
+
+
+
 
 }
