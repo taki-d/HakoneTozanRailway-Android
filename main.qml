@@ -10,7 +10,14 @@ ApplicationWindow {
 
     header: ToolBar {
         id: toolbar
+        width: parent.width / 20
+        height: parent.height / 20
 
+        Rectangle{
+            anchors.fill: parent
+            color: "gray"
+
+        }
 
         Rectangle {
             id: drawerOpenButton
