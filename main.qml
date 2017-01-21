@@ -11,14 +11,20 @@ ApplicationWindow {
     header: ToolBar {
         id: toolbar
 
+
         Rectangle {
             id: drawerOpenButton
             width: toolbar.height
             height: toolbar.height
 
             Image {
-                id: openIcon
-                source: "iconic/"
+
+                id: drawerIcon
+                source: "open-iconic/svg/list.svg"
+                x: parent.width * 0.15
+                y: parent.height * 0.15
+                sourceSize.width: parent.width / 1.3
+                sourceSize.height: parent.height / 1.3
             }
 
             MouseArea {
@@ -26,8 +32,8 @@ ApplicationWindow {
                 anchors.fill: parent
 
                 onClicked: {
-                    console.log("clicked")
-                    console.log(drawer.width)
+                    // console.log("clicked")
+                    // console.log(drawer.width)
 
                     if (drawer.position == 1.0){
                         drawer.close()

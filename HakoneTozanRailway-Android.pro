@@ -1,7 +1,8 @@
 TEMPLATE = app
 
-QT += qml quick
-CONFIG += c++11
+QT += qml quick svg xml
+QTPLUGIN += qsvg
+CONFIG += c++14
 
 SOURCES += main.cpp
 
