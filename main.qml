@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 
 ApplicationWindow {
+
     id: window
     visible: true
     width: 640
@@ -10,8 +11,8 @@ ApplicationWindow {
 
     header: ToolBar {
         id: toolbar
-        width: parent.width / 20
-        height: parent.height / 20
+//        width: parent.width / 20
+//        height: parent.height / 20
 
         Rectangle{
             anchors.fill: parent
@@ -47,6 +48,7 @@ ApplicationWindow {
                     }else{
                         drawer.open()
                     }
+
                 }
 
             }
@@ -61,9 +63,42 @@ ApplicationWindow {
         y: header.height
         width: window.width * 0.6
         height: window.height - header.height
+
+        Column{
+
+            Rectangle {
+                color: "black"
+            }
+
+            ListView {
+                id: listView
+                currentIndex: -1
+                anchors.fill: parent
+
+                 delegate: ItemDelegate {
+                    width: parent.width
+                    text: model.title
+                    highlighted: ListView.currentItem
+                    onClicked: {
+                      if(listView.currentIndex != index){
+                            listView.currentIndex = index
+                            StackView.push(model.source)
+                       }
+                            drawer.close()
+                       }
+                    Image {
+                        height: parent.height
+                        width: parent.height
+                        source: model.ImageSource
+                    }
+                }
+
+                model: ListModel{
+                    ListElement { title: "Attendance"; source: "/path/to/qml" }
+                    ListElement { title: "Login"; source: "/path/to/qml" }
+                }
+        }
+        }
     }
-
-
-
 
 }
