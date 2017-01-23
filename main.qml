@@ -1,5 +1,8 @@
 import QtQuick 2.7
+import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import QtQuick.Controls.Universal 2.0
 
 ApplicationWindow {
 
@@ -10,46 +13,31 @@ ApplicationWindow {
     title: qsTr("HTT Bread")
 
     header: ToolBar {
-        id: toolbar
-//        width: parent.width / 20
-//        height: parent.height / 20
 
-        Rectangle{
+        Material.foreground: "white"
+
+        RowLayout {
+
+            spacing: 20
             anchors.fill: parent
-            color: "gray"
 
-        }
+            ToolButton {
 
-        Rectangle {
-            id: drawerOpenButton
-            width: toolbar.height
-            height: toolbar.height
-
-            Image {
-
-                id: drawerIcon
-                source: "open-iconic/svg/list.svg"
-                x: parent.width * 0.15
-                y: parent.height * 0.15
-                sourceSize.width: parent.width / 1.3
-                sourceSize.height: parent.height / 1.3
-
-            }
-
-            MouseArea {
-                id: drawerOpen
-                anchors.fill: parent
-
+                contentItem: Image {
+                    id: drawerImage
+                    horizontalAlignment: Image.AlignHCenter
+                    verticalAlignment: Image.AlignVCenter
+                    sourceSize.height: parent.height / 1.5
+                    sourceSize.width: parent.height
+                    source: "./open-iconic/svg/menu.svg"
+                }
                 onClicked: {
-                    // console.log("clicked")
-                    // console.log(drawer.width)
-
-                    if (drawer.position == 1.0){
-                        drawer.close()
-                    }else{
+                    if(stackView.depth > 1 ){
+                        stackView.pop()
+                        listView.currentIndex = -1
+                    } else {
                         drawer.open()
                     }
-
                 }
 
             }
@@ -59,6 +47,7 @@ ApplicationWindow {
     }
 
     Drawer {
+
         id: drawer
 
         y: header.height
@@ -91,6 +80,8 @@ ApplicationWindow {
                 ListElement { title: "Login"; source: "/path/to/qml" }
                 ListElement { title: "Logout"; source: "/path/to/qml" }
             }
+
+            ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
 
@@ -139,13 +130,6 @@ ApplicationWindow {
 
                 font.pixelSize: 30
 
-
-                ColorAnimation {
-                    from: "gray"
-                    to: "black"
-                    duration: 5
-                }
-
                 text: "Let's Get Started"
 
                 onClicked: {
@@ -157,7 +141,7 @@ ApplicationWindow {
 
         }
 
-
     }
+
 }
 
