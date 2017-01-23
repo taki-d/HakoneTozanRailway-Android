@@ -33,6 +33,7 @@ ApplicationWindow {
                 y: parent.height * 0.15
                 sourceSize.width: parent.width / 1.3
                 sourceSize.height: parent.height / 1.3
+
             }
 
             MouseArea {
@@ -64,41 +65,56 @@ ApplicationWindow {
         width: window.width * 0.6
         height: window.height - header.height
 
-        Column{
 
-            Rectangle {
-                color: "black"
-            }
 
-            ListView {
-                id: listView
-                currentIndex: -1
-                anchors.fill: parent
+        ListView {
+            id: listView
+            currentIndex: -1
+            anchors.fill: parent
 
-                 delegate: ItemDelegate {
+            delegate: ItemDelegate {
+
                     width: parent.width
                     text: model.title
-                    highlighted: ListView.currentItem
+                    highlighted: ListView.currentIndex
                     onClicked: {
                       if(listView.currentIndex != index){
                             listView.currentIndex = index
-                            StackView.push(model.source)
+                            stackView.push(model.source)
                        }
-                            drawer.close()
-                       }
-                    Image {
-                        height: parent.height
-                        width: parent.height
-                        source: model.ImageSource
+                       drawer.close()
                     }
-                }
+            }
 
-                model: ListModel{
-                    ListElement { title: "Attendance"; source: "/path/to/qml" }
-                    ListElement { title: "Login"; source: "/path/to/qml" }
-                }
-        }
+            model: ListModel{
+                ListElement { title: "Attendance"; source: "Login.qml" }
+                ListElement { title: "Login"; source: "/path/to/qml" }
+                ListElement { title: "Logout"; source: "/path/to/qml" }
+            }
         }
     }
 
+    StackView {
+        id: stackView
+        anchors.fill: parent
+
+        initialItem: Pane {
+            id: pane
+
+            Image {
+                id: logo
+
+                sourceSize.width: pane.availableWidth / 2
+                sourceSize.height: pane.availableHeight / 2
+                fillMode: Image.PreserveAspectFit
+                anchors.centerIn: parent
+                anchors.verticalCenterOffset: -50
+                source: "./open-iconic/svg/home.svg"
+            }
+
+        }
+
+
+    }
 }
+
