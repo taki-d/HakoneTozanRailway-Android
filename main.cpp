@@ -3,10 +3,13 @@
 
 int main(int argc, char *argv[])
 {
+    //Support High DPI Device
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();
+
 }

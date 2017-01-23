@@ -118,7 +118,7 @@ ApplicationWindow {
                 verticalAlignment: Label.AlignHCenter
                 wrapMode: Label.Wrap
 
-                font.pixelSize: 22
+                font.pixelSize: 20
 
             }
 
@@ -130,7 +130,7 @@ ApplicationWindow {
 
                 width: parent.width / 4
 
-                font.pixelSize: 30
+                font.pixelSize: 27
 
                 text: "Let's Get Started"
 
