@@ -225,5 +225,7 @@
         <file>open-iconic/svg/action-redo.svg</file>
         <file>open-iconic/svg/account-logout.svg</file>
         <file>open-iconic/svg/account-login.svg</file>
+        <file>resource/breadlogo.svg</file>
+        <file>resource/bread.svg</file>
     </qresource>
 </RCC>

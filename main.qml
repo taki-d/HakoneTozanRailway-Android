@@ -109,7 +109,40 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: -50
-                source: "./open-iconic/svg/home.svg"
+                source: "./resource/bread.svg"
+
+            }
+            Label {
+                id: httBreadLabel
+
+                text: "HTT Bread makes your life better"
+                anchors.margins: 20
+                anchors.top: logo.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+
+                horizontalAlignment: Label.AlignHCenter
+                verticalAlignment: Label.AlignHCenter
+                wrapMode: Label.Wrap
+
+                font.pixelSize: 22
+
+            }
+
+            Button {
+                anchors.margins: 40
+                anchors.top: httBreadLabel.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+
+                width: parent.width / 4
+
+                text: "Let's Get Started"
+
+                onClicked: {
+                    console.log("Clicked Button")
+                }
+
             }
 
         }
