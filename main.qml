@@ -137,10 +137,20 @@ ApplicationWindow {
 
                 width: parent.width / 4
 
+                font.pixelSize: 30
+
+
+                ColorAnimation {
+                    from: "gray"
+                    to: "black"
+                    duration: 5
+                }
+
                 text: "Let's Get Started"
 
                 onClicked: {
-                    console.log("Clicked Button")
+                    console.log("clicked start button")
+                    stackView.push("/path/to/qml")
                 }
 
             }
