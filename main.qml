@@ -55,7 +55,6 @@ ApplicationWindow {
         height: window.height - header.height
 
 
-
         ListView {
             id: listView
             currentIndex: -1
@@ -76,12 +75,15 @@ ApplicationWindow {
             }
 
             model: ListModel{
+
                 ListElement { title: "Attendance"; source: "Login.qml" }
                 ListElement { title: "Login"; source: "/path/to/qml" }
                 ListElement { title: "Logout"; source: "/path/to/qml" }
+
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
+
         }
     }
 
