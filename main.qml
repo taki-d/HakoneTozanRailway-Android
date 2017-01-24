@@ -23,6 +23,8 @@ ApplicationWindow {
 
             ToolButton {
 
+
+
                 contentItem: Image {
                     id: drawerImage
                     horizontalAlignment: Image.AlignHCenter
@@ -39,6 +41,8 @@ ApplicationWindow {
                         drawer.open()
                     }
                 }
+
+
 
             }
 
@@ -76,9 +80,18 @@ ApplicationWindow {
 
             model: ListModel{
 
-                ListElement { title: "Attendance"; source: "Login.qml" }
-                ListElement { title: "Login"; source: "/path/to/qml" }
-                ListElement { title: "Logout"; source: "/path/to/qml" }
+                ListElement {
+                    title: "Attendance"
+                    source: "Login.qml"
+                }
+                ListElement {
+                    title: "Login"
+                    source: "/path/to/qml"
+                }
+                ListElement {
+                    title: "Logout"
+                    source: "/path/to/qml"
+                }
 
             }
 
