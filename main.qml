@@ -66,38 +66,46 @@ ApplicationWindow {
 
             delegate: ItemDelegate {
 
-                    width: parent.width
-                    text: model.title
-                    highlighted: ListView.currentIndex
-                    onClicked: {
-                      if(listView.currentIndex != index){
-                            listView.currentIndex = index
-                            stackView.push(model.source)
-                       }
-                       drawer.close()
+                width: parent.width
+                text: model.title
+                highlighted: ListView.currentIndex
+                onClicked: {
+                    if(listView.currentIndex != index){
+                        listView.currentIndex = index
+                        stackView.push(model.source)
                     }
+                    drawer.close()
+                }
+
+                ScrollIndicator.vertical: ScrollIndicator { }
+
             }
 
-            model: ListModel{
+            model: listModel
+
+            ListModel{
+                id: listModel
 
                 ListElement {
                     title: "Attendance"
+                    iconSource: ""
                     source: "Login.qml"
                 }
                 ListElement {
                     title: "Login"
+                    iconSource: ""
                     source: "/path/to/qml"
                 }
                 ListElement {
                     title: "Logout"
+                    iconSource: ""
                     source: "/path/to/qml"
                 }
 
             }
 
-            ScrollIndicator.vertical: ScrollIndicator { }
-
         }
+
     }
 
     StackView {
@@ -106,6 +114,8 @@ ApplicationWindow {
 
         initialItem: Pane {
             id: pane
+            x: 0
+            y: 0
 
             Image {
                 id: logo
