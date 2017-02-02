@@ -12,9 +12,12 @@ ApplicationWindow {
     height: 480
     title: qsTr("HTT Bread")
 
+    Material.theme: Material.Light
+
     header: ToolBar {
 
-        Material.foreground: "white"
+        Material.foreground: Material.Lime
+        Material.background: Material.Green
 
         RowLayout {
 
@@ -156,6 +159,9 @@ ApplicationWindow {
                 font.pixelSize: 27
 
                 text: "Let's Get Started"
+
+                Material.background: Material.LightGreen
+                Material.foreground: "white"
 
                 onClicked: {
                     console.log("clicked start button")
