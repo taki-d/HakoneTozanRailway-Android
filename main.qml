@@ -26,16 +26,15 @@ ApplicationWindow {
 
             ToolButton {
 
-
-
                 contentItem: Image {
                     id: drawerImage
                     horizontalAlignment: Image.AlignHCenter
                     verticalAlignment: Image.AlignVCenter
-                    sourceSize.height: parent.height / 1.5
+                    sourceSize.height: parent.height / 2.0
                     sourceSize.width: parent.height
                     source: "./open-iconic/svg/menu.svg"
                 }
+
                 onClicked: {
                     if(stackView.depth > 1 ){
                         stackView.pop()
@@ -124,8 +123,8 @@ ApplicationWindow {
                 id: logo
 
                 sourceSize.width: pane.availableWidth / 2
-                sourceSize.height: pane.availableHeight / 2
-                fillMode: Image.PreserveAspectFit
+                sourceSize.height: pane.availableWidth / 2
+//                fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
                 anchors.verticalCenterOffset: -50
                 source: "./resource/bread.svg"
@@ -156,7 +155,7 @@ ApplicationWindow {
 
                 width: parent.width / 4
 
-                font.pixelSize: 27
+                font.pixelSize: 25
 
                 text: "Let's Get Started"
 

@@ -226,6 +226,6 @@
         <file>open-iconic/svg/account-login.svg</file>
         <file>resource/breadlogo.svg</file>
         <file>resource/bread.svg</file>
-        <file>pages/SlideMenu.qml</file>
+        <file>pages/Login.qml</file>
     </qresource>
 </RCC>
