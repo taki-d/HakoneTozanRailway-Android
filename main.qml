@@ -164,7 +164,7 @@ ApplicationWindow {
 
                 onClicked: {
                     console.log("clicked start button")
-                    stackView.push("/path/to/qml")
+                    stackView.push("qrc:pages/Login.qml")
                 }
 
             }
