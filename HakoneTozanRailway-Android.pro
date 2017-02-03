@@ -30,8 +30,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    Login.qml
+DISTFILES +=
 
 unix:!android {
     isEmpty(target.path) {
@@ -45,4 +44,10 @@ unix:!android {
     INSTALLS += target
 }
 
+android:{
+    DEFINES += ANDROID
+}
+
 export(INSTALLS)
+
+

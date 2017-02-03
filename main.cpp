@@ -8,7 +8,12 @@
 int main(int argc, char *argv[])
 {
     //Support High DPI Device
-    //QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#ifdef ANDROID
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#else
+    //hogehoge
+#endif
+
     QGuiApplication app(argc, argv);
     QGuiApplication::setApplicationName("HTT Bread");
     QGuiApplication::setApplicationVersion("beta0.1");
