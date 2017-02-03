@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     //if you want to register class to QtQuick, please write like this!
 //    qmlRegisterType<std::vector>("vector",1,0,"vector");
 
-    //qtquickstyles
+    //set qtquickstyles
     QQuickStyle::setStyle("Material");
 
     QQmlApplicationEngine engine;

@@ -20,10 +20,11 @@ Item {
 
             id: loginlabel
             text: "Please Login"
+            x: parent.width * 0.1
+            y: parent.height * 0.3
 
             font.pixelSize: 30
 
-            anchors.centerIn: parent
             anchors.verticalCenterOffset: -50
 
         }
@@ -42,14 +43,45 @@ Item {
         TextField {
             id: usernameinput
 
-            width: parent.width
+            width: parent.width * 0.8
+            x: parent.width * 0.1
+//            anchors.top: usernamelabel.bottom
 
-            anchors.top: usernamelabel.bottom
-            anchors.centerIn: parent
-            anchors.margins: 20
+            anchors.top: loginlabel.bottom
+            anchors.margins: 50
 
             placeholderText: qsTr("Enter your Username")
 
+
+        }
+
+        TextField {
+            id: passwordinput
+
+            width: parent.width * 0.8
+            x: parent.width * 0.1
+
+            echoMode: TextInput.Password
+            passwordCharacter: "*"
+
+            placeholderText: qsTr("Enter your Password")
+
+            anchors.topMargin: 40
+            anchors.top: usernameinput.bottom
+
+        }
+
+        Button {
+            id: loginButton
+            text: "Login"
+
+            width: parent.width * 0.6
+            x: parent.width * 0.2
+
+            Material.background: Material.Orange
+
+            anchors.topMargin: 150
+            anchors.top: passwordinput.bottom
 
         }
 
