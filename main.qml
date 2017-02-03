@@ -37,8 +37,9 @@ ApplicationWindow {
 
                 onClicked: {
                     if(stackView.depth > 1 ){
-                        stackView.pop()
-                        listView.currentIndex = -1
+//                        stackView.pop()
+//                        listView.currentIndex = -1
+                        drawer.open()
                     } else {
                         drawer.open()
                     }
@@ -91,12 +92,12 @@ ApplicationWindow {
                 ListElement {
                     title: "Attendance"
                     iconSource: ""
-                    source: "Login.qml"
+                    source: "/path/to/qml"
                 }
                 ListElement {
                     title: "Login"
                     iconSource: ""
-                    source: "/path/to/qml"
+                    source: "qrc:pages/Login.qml"
                 }
                 ListElement {
                     title: "Logout"
