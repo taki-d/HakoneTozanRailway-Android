@@ -11,6 +11,8 @@ Item {
     Material.background: Material.Green
     Material.accent: Material.LightBlue
 
+    signal clickedLogin(string Password,string Username)
+
 //    Column{
 
 //        spacing: 40
@@ -82,6 +84,13 @@ Item {
 
             anchors.topMargin: 150
             anchors.top: passwordinput.bottom
+
+            onClicked: {
+                console.log("Login.qml: Clicked Login Button")
+
+                page.clickedLogin(passwordinput.text,usernameinput.text)
+
+            }
 
         }
 
