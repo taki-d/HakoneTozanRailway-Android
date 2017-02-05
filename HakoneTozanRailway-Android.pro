@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick svg xml quickcontrols2
+QT += qml quick svg xml quickcontrols2 widgets
 QTPLUGIN += qsvg
 CONFIG += c++14
 
