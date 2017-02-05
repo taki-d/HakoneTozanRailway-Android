@@ -4,7 +4,8 @@ QT += qml quick svg xml quickcontrols2
 QTPLUGIN += qsvg
 CONFIG += c++14
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    networksignalslot.cpp
 
 RESOURCES += qml.qrc
 
@@ -49,5 +50,8 @@ android:{
 }
 
 export(INSTALLS)
+
+HEADERS += \
+    networksignalslot.h
 
 
