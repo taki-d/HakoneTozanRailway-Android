@@ -1,6 +1,7 @@
 #include <QObject>
 #include <QNetworkCookieJar>
 #include <QNetworkCookie>
+#include <QString>
 
 #include <iostream>
 #include <tuple>

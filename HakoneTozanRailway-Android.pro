@@ -1,11 +1,12 @@
 TEMPLATE = app
 
-QT += qml quick svg xml quickcontrols2 widgets
+QT += qml quick svg xml quickcontrols2 widgets network
 QTPLUGIN += qsvg
 CONFIG += c++14
 
 SOURCES += main.cpp \
-    networksignalslot.cpp
+    networksignalslot.cpp \
+    cookie.cpp
 
 RESOURCES += qml.qrc
 
@@ -52,6 +53,7 @@ android:{
 export(INSTALLS)
 
 HEADERS += \
-    networksignalslot.h
+    networksignalslot.h \
+    cookie.h
 
 

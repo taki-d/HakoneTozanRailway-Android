@@ -13,8 +13,11 @@ public:
     NetworkSignalSlot();
 
 private:
+    QString url = "http://locahost:3001/";
+
     void restoreCookie();
     QNetworkCookie loadCookie();
+
 
 signals:
     void signalTest(int test);

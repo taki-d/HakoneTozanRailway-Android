@@ -94,12 +94,12 @@ Item {
 
         }
 
-//        Connections {
-//            target: networkSignalSlot
-//            onSignalTest: {
-//                console.log("signalllll");
-//            }
-//        }
+        Connections {
+            target: networkSignalSlot
+            onSignalTest: {
+                console.log("signalllll");
+            }
+        }
 
 //    }
 }
