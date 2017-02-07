@@ -1,5 +1,9 @@
 #include <QObject>
+#include <QNetworkCookieJar>
+#include <QNetworkCookie>
+
 #include <iostream>
+#include <tuple>
 
 #include "networksignalslot.h"
 
@@ -15,4 +19,21 @@ void NetworkSignalSlot::slotTest()
     //emit singal
     emit signalTest(3);
 }
+
+void NetworkSignalSlot::login()
+{
+    std::cout << "login process started" << std::endl;
+}
+
+void NetworkSignalSlot::restoreCookie()
+{
+
+}
+
+QNetworkCookie NetworkSignalSlot::loadCookie()
+{
+    QNetworkCookie hogehoge;
+    return hogehoge;
+}
+
 

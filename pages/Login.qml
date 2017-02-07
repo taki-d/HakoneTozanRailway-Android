@@ -89,10 +89,17 @@ Item {
                 console.log("Login.qml: Clicked Login Button")
 
                 page.clickedLogin(passwordinput.text,usernameinput.text)
-
+                networkSignalSlot.slotTest()
             }
 
         }
+
+//        Connections {
+//            target: networkSignalSlot
+//            onSignalTest: {
+//                console.log("signalllll");
+//            }
+//        }
 
 //    }
 }

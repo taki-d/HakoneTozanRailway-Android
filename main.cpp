@@ -2,8 +2,11 @@
 #include <QQmlApplicationEngine>
 #include <QQuickItem>
 #include <QQuickStyle>
+#include <QQmlContext>
 
 #include <vector>
+
+#include "networksignalslot.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +28,11 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Material");
 
     QQmlApplicationEngine engine;
+
+//    QObject *root = engine.rootObjects().first();
+    NetworkSignalSlot obj;
+    engine.rootContext()->setContextProperty("networkSignalSlot",&obj);
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
 
