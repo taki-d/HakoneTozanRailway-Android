@@ -103,5 +103,18 @@ Item {
             }
         }
 
+        Connections {
+            target: networkSignalSlot
+            onLoginFinished: {
+
+                if(success){
+                    console.log("login successed")
+                }else{
+                    console.log("login faild")
+                }
+
+            }
+        }
+
 //    }
 }
