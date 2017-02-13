@@ -24,7 +24,7 @@ Item {
             id: loginlabel
             text: "Please Login"
             x: parent.width * 0.1
-            y: parent.height * 0.3
+            y: parent.height * 0.2
 
             font.pixelSize: 30
 
@@ -74,6 +74,19 @@ Item {
 
         }
 
+        Label {
+
+            id: errormessage
+            text: "Login Faild"
+            font.pixelSize: 15
+            color: "Red"
+            visible: false
+
+            anchors.topMargin: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: passwordinput.bottom
+        }
+
         Button {
 
             id: loginButton
@@ -84,15 +97,28 @@ Item {
 
             Material.background: Material.Orange
 
-            anchors.topMargin: 150
-            anchors.top: passwordinput.bottom
+            anchors.topMargin: 50
+            anchors.top: errormessage.bottom
 
             onClicked: {
                 console.log("Login.qml: Clicked Login Button")
 
+                loginButton.visible = false
+                busyindicator.visible = true
+
                 page.clickedLogin(passwordinput.text,usernameinput.text)
                 networkSignalSlot.slotTest()
             }
+
+        }
+
+        BusyIndicator {
+            id: busyindicator
+
+            anchors.top: loginButton.top
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            visible: false
 
         }
 
@@ -109,9 +135,16 @@ Item {
 
                 if(success){
                     console.log("login successed")
+                    loginButton.visible = true
+                    errormessage.visible = false
+
                 }else{
                     console.log("login faild")
+                    errormessage.visible = true
                 }
+
+                loginButton.visible = true
+                busyindicator.visible = false
 
             }
         }

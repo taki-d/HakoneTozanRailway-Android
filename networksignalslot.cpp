@@ -5,6 +5,8 @@
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
+#include <QEventLoop>
+#include <QTimer>
 
 #include <iostream>
 #include <tuple>
@@ -19,6 +21,8 @@ NetworkSignalSlot::NetworkSignalSlot()
     QNAManager->setCookieJar(new QNetworkCookieJar(QNAManager));
 
     connect(QNAManager,&QNetworkAccessManager::finished,this,&NetworkSignalSlot::replayFinished);
+
+
 }
 
 void NetworkSignalSlot::slotTest()
@@ -90,6 +94,10 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
             if(statusCode == 302){
 
+                QEventLoop loop;
+                QTimer::singleShot(2000,&loop,&QEventLoop::quit);
+                loop.exec();
+
                 emit loginFinished(true);
 
 //                    QNetworkRequest req;
@@ -97,6 +105,10 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 //                    QNAManager->get(req);
 
             }else{
+
+                QEventLoop loop;
+                QTimer::singleShot(2000,&loop,&QEventLoop::quit);
+                loop.exec();
 
                 emit loginFinished(false);
 
@@ -113,6 +125,12 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
     }else{
 
         std::cout << "erorororrrrrr" << std::endl;
+
+        QEventLoop loop;
+        QTimer::singleShot(2000,&loop,&QEventLoop::quit);
+        loop.exec();
+
+        emit loginFinished(false);
 
     }
 }
