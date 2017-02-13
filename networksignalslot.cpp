@@ -70,9 +70,9 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 {
 
     std::cout << "reply finished" << std::endl;
-    QString res = QString::fromUtf8(reply->readAll().data());
-    std::cout << res.toUtf8().constData() << std::endl;
-    std::cout << reply->request().url().url().toUtf8().constData() << std::endl;
+//    QString res = QString::fromUtf8(reply->readAll().data());
+//    std::cout << res.toUtf8().constData() << std::endl;
+//    std::cout << reply->request().url().url().toUtf8().constData() << std::endl;
 
     QString requestURL = reply->request().url().url();
 
@@ -88,9 +88,21 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
             std::cout << statusCode << std::endl;
 
+            if(statusCode == 302){
+
+                emit loginFinished(true);
+
+//                    QNetworkRequest req;
+//                    req.setUrl(QUrl("http://localhost:3001/"));
+//                    QNAManager->get(req);
+
+            }else{
+
+                emit loginFinished(false);
+
+            }
+
             std::cout << "/login " << "accessd"  << std::endl;
-
-
 
         }else{
 

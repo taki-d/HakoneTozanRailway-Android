@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.0
 
 
 Item {
+
     id: page
 
     Material.background: Material.Green
@@ -74,6 +75,7 @@ Item {
         }
 
         Button {
+
             id: loginButton
             text: "Login"
 
