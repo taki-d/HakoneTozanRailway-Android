@@ -93,12 +93,12 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
             std::cout << statusCode << std::endl;
 
             if(statusCode == 302){
-
+                //すぐにloginが終わりすぎて悲しいのでwait(2000)
                 QEventLoop loop;
                 QTimer::singleShot(2000,&loop,&QEventLoop::quit);
                 loop.exec();
 
-                emit loginFinished(true);
+                emit loginFinished(true,0);
 
 //                    QNetworkRequest req;
 //                    req.setUrl(QUrl("http://localhost:3001/"));
@@ -106,11 +106,12 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
             }else{
 
+                //すぐにLoginが終わりすぎてかなしいのでwait(2000)
                 QEventLoop loop;
                 QTimer::singleShot(2000,&loop,&QEventLoop::quit);
                 loop.exec();
 
-                emit loginFinished(false);
+                emit loginFinished(false,1);
 
             }
 
@@ -126,11 +127,12 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
         std::cout << "erorororrrrrr" << std::endl;
 
+        //すぐにLoginが終わりすぎてかなしいのでwait(2000)
         QEventLoop loop;
         QTimer::singleShot(2000,&loop,&QEventLoop::quit);
         loop.exec();
 
-        emit loginFinished(false);
+        emit loginFinished(false,2);
 
     }
 }

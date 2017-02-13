@@ -133,11 +133,12 @@ Item {
             target: networkSignalSlot
             onLoginFinished: {
 
+                console.log(status_code)
+
                 if(success){
                     console.log("login successed")
                     loginButton.visible = true
                     errormessage.visible = false
-
                 }else{
                     console.log("login faild")
                     errormessage.visible = true

@@ -23,7 +23,14 @@ private:
 
 signals:
     void signalTest(int test);
-    void loginFinished(bool success);
+    void loginFinished(bool success,int status_code);
+        /*
+         * status_code
+         *  0:Success
+         *  1:Password or Username is wrong.
+         *  2:Check Network Connection with Server
+        */
+
 
 public slots:
     void slotTest();
