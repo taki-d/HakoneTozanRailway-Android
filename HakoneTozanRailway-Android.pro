@@ -5,8 +5,7 @@ QTPLUGIN += qsvg
 CONFIG += c++14
 
 SOURCES += main.cpp \
-    networksignalslot.cpp \
-    cookie.cpp
+    networksignalslot.cpp
 
 RESOURCES += qml.qrc
 
@@ -53,7 +52,6 @@ android:{
 export(INSTALLS)
 
 HEADERS += \
-    networksignalslot.h \
-    cookie.h
+    networksignalslot.h
 
 
