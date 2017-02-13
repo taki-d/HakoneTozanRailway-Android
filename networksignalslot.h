@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QNetworkCookieJar>
+#include <QNetworkAccessManager>
 
 class NetworkSignalSlot : public QObject
 {
@@ -14,6 +15,7 @@ public:
 
 private:
     QString url = "http://locahost:3001/";
+    QNetworkAccessManager *QNAManager;
 
     void restoreCookie();
     QNetworkCookie loadCookie();
@@ -21,10 +23,12 @@ private:
 
 signals:
     void signalTest(int test);
+    void loginFinished(bool success);
 
 public slots:
     void slotTest();
     void login();
+    void replayFinished(QNetworkReply *reply);
 };
 
 #endif // NETWORKSIGNALSLOT_H
