@@ -139,9 +139,11 @@ Item {
                     console.log("login successed")
                     loginButton.visible = true
                     errormessage.visible = false
+
                 }else{
                     console.log("login faild")
                     errormessage.visible = true
+
                 }
 
                 loginButton.visible = true
