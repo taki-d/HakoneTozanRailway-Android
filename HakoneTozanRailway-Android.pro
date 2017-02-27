@@ -33,17 +33,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 DISTFILES +=
 
-unix:!android {
-    isEmpty(target.path) {
-        qnx {
-            target.path = /tmp/$${TARGET}/bin
-        } else {
-            target.path = /opt/$${TARGET}/bin
-        }
-        export(target.path)
-    }
-    INSTALLS += target
-}
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+
+#unix:!android {
+#    isEmpty(target.path) {
+#        qnx {
+#            target.path = /tmp/$${TARGET}/bin
+#        } else {
+#            target.path = /opt/$${TARGET}/bin
+#        }
+#        export(target.path)
+#    }
+#    INSTALLS += target
+#}
 
 android:{
     DEFINES += ANDROID

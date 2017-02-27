@@ -227,5 +227,6 @@
         <file>resource/breadlogo.svg</file>
         <file>resource/bread.svg</file>
         <file>pages/Login.qml</file>
+        <file>pages/Firstview.qml</file>
     </qresource>
 </RCC>
