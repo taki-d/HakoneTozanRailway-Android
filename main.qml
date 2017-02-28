@@ -196,7 +196,16 @@ ApplicationWindow {
 
 //        }
 
+    Connections{
+        target: loader.item
+        onChangeScreen: {
+            changeScreen(src)
+        }
     }
+
+}
+
+
 
 //}
 

@@ -13,6 +13,7 @@ Item {
     Material.accent: Material.LightBlue
 
     signal clickedLogin(string Password,string Username)
+    signal changeScreen(string src)
 
 //    Column{
 
@@ -139,6 +140,8 @@ Item {
                     console.log("login successed")
                     loginButton.visible = true
                     errormessage.visible = false
+
+                    changeScreen("qrc:pages/AttendanceView.qml")
 
                 }else{
                     console.log("login faild")

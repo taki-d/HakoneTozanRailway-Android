@@ -3,7 +3,9 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 
-Item {
+Page {
+
+    signal changeScreen(string src);
 
 
     Image {
@@ -51,7 +53,7 @@ Item {
         onClicked: {
             //                    console.log("clicked start button")
             //                    stackView.push("qrc:pages/Login.qml")
-            console.log("hogehoge")
+//            console.log("hogehoge")
             loader.source = "qrc:pages/Login.qml"
         }
 
