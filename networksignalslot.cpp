@@ -38,7 +38,7 @@ void NetworkSignalSlot::login()
     std::cout << "login process started" << std::endl;
 
     QNetworkRequest req;
-    req.setUrl(QUrl("http://localhost:3001/login"));
+    req.setUrl(QUrl("http://localhost:3000/login"));
     QByteArray postData;
     postData.append("username=takahiro&password=takahiro");
     QNAManager->post(req,postData);
@@ -82,11 +82,11 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
     if(reply->error() == QNetworkReply::NoError){
 
-        if(requestURL == "http://localhost:3001/"){
+        if(requestURL == "http://localhost:3000/"){
 
             std::cout << "/ " << "accessed" << std::endl;
 
-        }else if(requestURL == "http://localhost:3001/login"){
+        }else if(requestURL == "http://localhost:3000/login"){
 
             int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 

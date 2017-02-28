@@ -14,7 +14,7 @@ public:
     NetworkSignalSlot();
 
 private:
-    QString url = "http://locahost:3001/";
+    QString url = "http://locahost:3000/";
     QNetworkAccessManager *QNAManager;
 
     void restoreCookie();
