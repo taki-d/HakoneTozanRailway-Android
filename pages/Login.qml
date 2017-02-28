@@ -152,6 +152,9 @@ Item {
                 loginButton.visible = true
                 busyindicator.visible = false
 
+
+                //for test
+                changeScreen("qrc:pages/AttendanceView.qml")
             }
         }
 

@@ -16,6 +16,8 @@ ApplicationWindow {
 
     Component.onCompleted: {
         changeScreen("qrc:pages/Firstview.qml")
+
+//        console.log(Math.sin(30 * (Math.PI /180)))
     }
 
 
