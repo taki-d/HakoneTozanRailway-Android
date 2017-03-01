@@ -22,10 +22,15 @@ Page {
         }
     }
 
+    Component.onCompleted: {
+        console.log(swipeview.height)
+    }
+
     SwipeView {
 
         id: swipeview
         width: parent.width
+        height: parent.height
         currentIndex: tabbar.currentIndex
 
         Pane {
@@ -42,8 +47,9 @@ Page {
 
             Component {
                 id: delegate
-                Text {
+                Label {
                     text: model.text
+                    font.pixelSize: 50
                 }
             }
 
@@ -58,6 +64,27 @@ Page {
                 ListElement {
                     text: "3"
                 }
+                ListElement {
+                    text: "4"
+                }
+                ListElement {
+                    text: "5"
+                }
+                ListElement {
+                    text: "6"
+                }
+                ListElement {
+                    text: "7"
+                }
+                ListElement {
+                    text: "8"
+                }
+                ListElement {
+                    text: "9"
+                }
+                ListElement {
+                    text: "0"
+                }
             }
 
             PathView {
@@ -66,31 +93,46 @@ Page {
                 model: model
                 delegate: delegate
                 path: Path {
-                    startX: swipeview.width / 2; startY: (swipeview.height / 2) + (swipeview.width / 2)
-                    PathArc {
-                        x: 100; y: (swipeview.height / 2)
-                        radiusX: (swipeview.width - 100) / 2; radiusY: (swipeview.width - 100 )/ 2
-                        useLargeArc: true
 
-                    }
+
+                               startX: swipeview.width / 2; startY: (swipeview.height / 2) + (swipeview.width - 200) / 2
+                               PathArc {
+                                   x: swipeview.width / 2; y: (swipeview.height / 2) - (swipeview.width - 200) / 2
+                                   radiusX: (swipeview.width - 200) / 2; radiusY:(swipeview.width - 200) / 2
+                                   useLargeArc: false
+                               }
+                               PathArc {
+                                   x: swipeview.width / 2; y: (swipeview.height / 2 ) + (swipeview.width - 200) / 2
+                                   radiusX: (swipeview.width - 200) / 2; radiusY: (swipeview.width - 200) / 2
+                                   useLargeArc: false
+                               }
+                 }
+
+                    //                    startX: 100; startY: swipeview.height / 2
+//                    PathArc {
+//                        x: swipeview.width - 100; y: swipeview.height / 2
+//                        radiusX: (swipeview.width - 100) / 2; radiusY: (swipeview.width - 100 )/ 2
+//                        useLargeArc: false
+
+//                    }
 //                    PathArc {
 //                        x: swipeview.width - 50; y: swipeview.height / 2
 //                        radiusX: (swipeview.width - 100) / 2; radiusY: (swipeview.width - 100) / 2
 //                        useLargeArc: false
 //                    }
-                }
+
                 focus: true
-                Keys.onLeftPressed: decrementCurrentIndex()
-                Keys.onRightPressed: incrementCurrentIndex()
+//                Keys.onLeftPressed: decrementCurrentIndex()
+//                Keys.onRightPressed: incrementCurrentIndex()
 
-                MouseArea {
-                    anchors.fill: swipeview
+//                MouseArea {
+//                    anchors.fill: swipeview
 
-                    onClicked: {
-                        console.log("clicked")
-                        pathview.decrementCurrentIndex()
-                    }
-                }
+//                    onClicked: {
+//                        console.log("clicked")
+//                        pathview.decrementCurrentIndex()
+//                    }
+//                }
                 Timer {
                     running: true
                     repeat: true
