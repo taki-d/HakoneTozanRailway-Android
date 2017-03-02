@@ -166,9 +166,10 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
         QTimer::singleShot(2000,&loop,&QEventLoop::quit);
         loop.exec();
 
-        if(requestURL == "http://locahost:3000/login"){
+        std::cout << requestURL.toUtf8().constData() << std::endl;
+        if(requestURL == "http://localhost:3000/login"){
             emit loginFinished(false,2);
-        }else {
+        }else{
             emit loadAttendanceDataFinished(false,3,false,false,false,false,false,false,false,false);
         }
 
@@ -179,9 +180,17 @@ void NetworkSignalSlot::loadAttendanceData(int month, int day)
 {
     std::cout << "m:" << month << std::endl;
     std::cout << "d:" << day << std::endl;
+
+    std::string mon = std::to_string(month).length() < 2 ? "0" + std::to_string(month) : std::to_string(day);
+    std::string day = std::to_string(day).length() < 2 ? "0" + std::to_string(day) : std::to_string(day);
     
-    
-    
+    std::cout << "loadAttendanceDataProcess" << std::endl;
+
+    QNetworkRequest req;
+    req.setUrl(QUrl("http://localhost:3000/api/me/" + "2017-" + mon + "-" + day));
+    QNAManager->get(req);
+
+    std::cout << "attendance data requested" << std::endl;
 }
 
 
