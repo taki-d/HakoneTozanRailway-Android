@@ -9,6 +9,7 @@ import QtQuick.Controls.Material 2.1
 Page {
 
     signal changeScreen(string src)
+    signal submitDate(int month,int day)
 
 
     id: page
@@ -32,10 +33,10 @@ Page {
         currentIndex: swipeview.currentIndex
 
         TabButton {
-            text: "Profile"
+            text: "Attendance"
         }
         TabButton {
-            text: "Calendar"
+            text: "Profile"
         }
     }
 
@@ -49,8 +50,9 @@ Page {
         anchors.fill: parent
         currentIndex: tabbar.currentIndex
 
-
         Pane {
+
+            ColumnLayout{
 
             Frame{
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -79,39 +81,55 @@ Page {
                             text: formatMonth(Tumbler.tumbler.count, modelData)
                         }
                     }
-                    Row{
-//                        anchors.fill: parent
+                    RowLayout{
+                        spacing: 10
 
+//                        ComboBox {
+//                            width: parent.width / 4
+//                            model: ["2016","2017","2018","2019","2020"]
+//                        }
 
+                        ComboBox {
+                            id:month
+                            model: ["January", "February", "March", "April", "May","June", "July", "August", "September", "October","November", "December"]
+                        }
 
-
-                        Tumbler {
-//                            anchors.fill: right
-//                            width: parent.width / 2
-                            model: 12
-                            delegate:monthdelegate
+                        ComboBox {
+                            id:day
+//                            model: ["January", "February", "March", "April", "May","June", "July", "August", "September", "October","November", "December"]
+                            model:["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
                         }
 
 
-
-                        Tumbler {
-//                            anchors.fill: left
-//                            width: parent.width / 2
-                            model: 31
-                            delegate: delegatee
-                        }
-                        //                        Label {
-                        //                            text: "day"
-                        //                        }
                     }
 
                     Button {
                         text: "View"
                         anchors.horizontalCenter: parent.horizontalCenter
 
+                        onClicked: {
+                            console.log(month.currentIndex)
+                            console.log(day.currentIndex)
+                            console.log("ViewButton Clicked")
+
+//                            submitDate(month.currentIndex + 1,day.currentIndex + 1)
+//                        	CppSignalSlot
+                            networkSignalSlot.loadAttendanceData(month.currentIndex + 1,day.currentIndex + 1)
+                        }
                     }
                 }
 
+
+            }
+
+            Frame{
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                ColumnLayout {
+
+                }
+
+            }
 
             }
             //            MonthGrid {

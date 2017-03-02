@@ -7,6 +7,9 @@
 #include <QNetworkRequest>
 #include <QEventLoop>
 #include <QTimer>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 #include <iostream>
 #include <tuple>
@@ -123,6 +126,37 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
 
         }
 
+    }else if(requestURL == "http://locahost:3000/api/me"){
+
+        QString res = QString::fromUtf8(reply->readAll().data());
+
+        QJsonDocument jsondoc = QJsonDocument::fromJson(reply->readAll().data());
+        QJsonObject jsonObj = jsondoc.object();
+        QStringList keylist = jsonObj.keys();
+
+        bool isThereData = false;
+
+        for (int b = 0; b < keylist.length(); ++b) {
+            if(keylist[b] == "attendance"){
+                break;
+                isThereData = true;
+            }
+        }
+
+        if(isThereData){
+
+            QJsonArray attendace = jsonObj.value("attendance").toArray();
+
+            foreach (QJsonValue value, attendace) {
+                QJsonObject obj = value.toObject();
+            }
+
+
+        }else{
+            emit loadAttendanceDataFinished(false,2,false,false,false,false,false,false,false,false);
+        }
+
+
     }else{
 
         std::cout << "erorororrrrrr" << std::endl;
@@ -132,9 +166,22 @@ void NetworkSignalSlot::replayFinished(QNetworkReply* reply)
         QTimer::singleShot(2000,&loop,&QEventLoop::quit);
         loop.exec();
 
-        emit loginFinished(false,2);
+        if(requestURL == "http://locahost:3000/login"){
+            emit loginFinished(false,2);
+        }else {
+            emit loadAttendanceDataFinished(false,3,false,false,false,false,false,false,false,false);
+        }
 
     }
+}
+
+void NetworkSignalSlot::loadAttendanceData(int month, int day)
+{
+    std::cout << "m:" << month << std::endl;
+    std::cout << "d:" << day << std::endl;
+    
+    
+    
 }
 
 

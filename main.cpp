@@ -5,6 +5,7 @@
 #include <QQmlContext>
 
 #include <vector>
+#include <iostream>
 
 #include "networksignalslot.h"
 
@@ -39,3 +40,5 @@ int main(int argc, char *argv[])
     return app.exec();
 
 }
+
+
