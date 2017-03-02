@@ -181,14 +181,22 @@ void NetworkSignalSlot::loadAttendanceData(int month, int day)
     std::cout << "m:" << month << std::endl;
     std::cout << "d:" << day << std::endl;
 
-    std::string mon = std::to_string(month).length() < 2 ? "0" + std::to_string(month) : std::to_string(day);
-    std::string day = std::to_string(day).length() < 2 ? "0" + std::to_string(day) : std::to_string(day);
-    
-    std::cout << "loadAttendanceDataProcess" << std::endl;
+//    std::stringstream monstr;
+//    monstr << month;
+//    std::string monn = monstr.str();
 
-    QNetworkRequest req;
-    req.setUrl(QUrl("http://localhost:3000/api/me/" + "2017-" + mon + "-" + day));
-    QNAManager->get(req);
+//    std::stringstream daystr;
+//    daystr << day;
+//    std::string dayy = daystr.str();
+
+//    std::string mon = monn.length() < 2 ? "0" + monn : monn;
+//    std::string da = dayy.length() < 2 ? "0" + dayy : dayy;
+//    std::cout << "loadAttendanceDataProcess" << std::endl;
+
+//    QNetworkRequest req;
+//    std::string reqUrl = std::string("http://localhost:3000/api/me/2017-") + mon + std::string("-") + da;
+//    req.setUrl(QUrl(QString::fromStdString(reqUrl)));
+//    QNAManager->get(req);
 
     std::cout << "attendance data requested" << std::endl;
 }
